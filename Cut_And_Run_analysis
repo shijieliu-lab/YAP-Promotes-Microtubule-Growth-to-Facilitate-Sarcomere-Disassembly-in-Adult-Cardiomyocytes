@@ -52,7 +52,7 @@ config {
      }
 }
 
-DataDir = "/users/zha5dp/project/01162025NRCM_YAP5SA_CUTRUN/01.RawData"
+DataDir = "/path/to/01.RawData"
 
 def branches = [
 
