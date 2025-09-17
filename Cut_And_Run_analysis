@@ -106,8 +106,6 @@ Trimgalore = {
 }
 
 bw2_genome = "/users/zha5dp/project/01162025NRCM_YAP5SA_CUTRUN/rat/rn7"
-// bw2_ecoli_genome = "/n/groups/zhanglab/nadhir/genomes/E.Coli/bowtie2_index/E.coli"
-// bw2_yeast_genome = "/n/groups/zhanglab/nadhir/genomes/yeast/bowtie2_index/yeast"
 
 Bowtie2 = {
 	var genome : bw2_genome
