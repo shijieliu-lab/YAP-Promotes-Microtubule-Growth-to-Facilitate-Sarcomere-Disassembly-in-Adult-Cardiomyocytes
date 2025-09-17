@@ -53,7 +53,7 @@ config {
 }
 
 title: "RNA-Seq analysis pipeline (total RNA stranded)"
-DataDir = "/users/zha5dp/RNA_Seq/05062025_NRCM_YAP5SAS94A_over/01.RawData"
+DataDir = "/path/to/01.RawData"
 
 def branches = [
 
