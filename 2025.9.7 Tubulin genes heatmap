@@ -1,0 +1,61 @@
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(pheatmap)
+})
+
+# ---- Load ----
+df <- read.csv("/Users/zha5dp/Desktop/tubulin gens in S94A and YAP5SA.csv",
+               check.names = FALSE)
+
+# Row names = gene names, matrix = numeric expression only
+rownames(df) <- df[[1]]
+mat <- df[, -1, drop = FALSE] |>
+  mutate(across(everything(), as.numeric)) |>
+  as.matrix()
+
+# ---- Transform ----
+mat_log <- log2(mat + 1)  # compress dynamic range
+
+# ---- Remove zero-variance rows *after* transform ----
+keep <- apply(mat_log, 1, sd, na.rm = TRUE) > 0
+mat_log <- mat_log[keep, , drop = FALSE]
+
+# ---- Row z-score (each gene mean=0, sd=1) ----
+mat_z <- t(scale(t(mat_log)))
+mat_z[!is.finite(mat_z)] <- 0  # final guardrail
+
+# ---- Optional column annotation ----
+cond <- ifelse(grepl("S94A", colnames(mat_z), ignore.case = TRUE),
+               "YAPS94A", "YAP5SA")
+anno_col <- data.frame(Condition = cond, row.names = colnames(mat_z))
+
+# ---- Heatmap ----
+pheatmap(
+  mat_z,
+  color = colorRampPalette(c("navy","white","firebrick3"))(100),
+  cluster_rows = TRUE, cluster_cols = TRUE,
+  border_color = NA,
+  fontsize_row = 10, fontsize_col = 10,
+  annotation_col = anno_col,
+  main = "Tubulin genes (log2 RPKM, row-scaled)"
+)
+
+# (Optional) save a high-res PNG
+png("/Users/zha5dp/Desktop/tubulin_heatmap-1.png", width = 1800, height = 2800, res = 300)
+pheatmap(mat_z,
+         color = colorRampPalette(c("navy","white","firebrick3"))(100),
+         cluster_rows = TRUE, cluster_cols = TRUE,
+         border_color = NA, fontsize_row = 10, fontsize_col = 10,
+         annotation_col = anno_col)
+dev.off()
+
+pdf("/Users/zha5dp/Desktop/tubulin_heatmap.pdf", width = 5, height = 8)  # adjust size
+pheatmap(
+       mat_z,
+       color = colorRampPalette(c("navy","white","firebrick3"))(100),
+       cluster_rows = TRUE, cluster_cols = TRUE,
+       border_color = NA,
+       fontsize_row = 13, fontsize_col = 15,
+       annotation_col = anno_col
+   )
+dev.off()
