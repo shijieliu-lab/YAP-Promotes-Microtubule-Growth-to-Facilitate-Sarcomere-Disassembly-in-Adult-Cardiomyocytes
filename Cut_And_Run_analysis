@@ -55,9 +55,18 @@ config {
 DataDir = "/users/zha5dp/project/01162025NRCM_YAP5SA_CUTRUN/01.RawData"
 
 def branches = [
-	
-	NRCM_GFP_rabbit_YAP	:  ["${DataDir}/NRCM_GFP_rabbit_YAP/NRCM_GFP_rabbit_YAP_CKDL250000333-1A_22M5WNLT4_L2_1.fq.gz",
-			            "${DataDir}/NRCM_GFP_rabbit_YAP/NRCM_GFP_rabbit_YAP_CKDL250000333-1A_22M5WNLT4_L2_2.fq.gz"],
+
+    NRCM_YAP5SA_mouse_YAP     :  ["${DataDir}/NRCM_YAP5SA_mouse_YAP/NRCM_YAP5SA_mouse_YAP_CKDL250000333-1A_22M5WNLT4_L2_1.fq.gz",
+                                    "${DataDir}/NRCM_YAP5SA_mouse_YAP/NRCM_YAP5SA_mouse_YAP_CKDL250000333-1A_22M5WNLT4_L2_2.fq.gz"],
+
+	NRCM_YAP5SA_rabbit_YAP     :  ["${DataDir}/NRCM_YAP5SA_rabbit_YAP/NRCM_YAP5SA_rabbit_YAP_CKDL250000333-1A_22M5WNLT4_L2_1.fq.gz",
+                                    "${DataDir}/NRCM_YAP5SA_rabbit_YAP/NRCM_YAP5SA_rabbit_YAP_CKDL250000333-1A_22M5WNLT4_L2_2.fq.gz"],
+
+	NRCM_YAPS94A_mouse_YAP     :  ["${DataDir}/NRCM_YAPS94A_mouse_YAP/NRCM_YAPS94A_mouse_YAP_CKDL250000333-1A_22M5WNLT4_L2_1.fq.gz",
+                                    "${DataDir}/NRCM_YAPS94A_mouse_YAP/NRCM_YAPS94A_mouse_YAP_CKDL250000333-1A_22M5WNLT4_L2_2.fq.gz"],
+
+	NRCM_YAPS94A_rabbit_YAP     :  ["${DataDir}/NRCM_YAPS94A_rabbit_YAP/NRCM_YAPS94A_rabbit_YAP_CKDL250000333-1A_22M5WNLT4_L2_1.fq.gz",
+                                    "${DataDir}/NRCM_YAPS94A_rabbit_YAP/NRCM_YAPS94A_rabbit_YAP_CKDL250000333-1A_22M5WNLT4_L2_2.fq.gz"],
 
 ]
 
