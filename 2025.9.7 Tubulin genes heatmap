@@ -4,7 +4,7 @@ suppressPackageStartupMessages({
 })
 
 # ---- Load ----
-df <- read.csv("/Users/zha5dp/Desktop/tubulin gens in S94A and YAP5SA.csv",
+df <- read.csv("/path/to/tubulin gens in S94A and YAP5SA.csv",
                check.names = FALSE)
 
 # Row names = gene names, matrix = numeric expression only
