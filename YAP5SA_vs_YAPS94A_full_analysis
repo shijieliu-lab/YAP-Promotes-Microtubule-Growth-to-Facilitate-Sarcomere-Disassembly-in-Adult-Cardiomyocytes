@@ -13,7 +13,7 @@ library(org.Rn.eg.db)
 library(tibble)
 
 # Set working directory
-setwd("/Users/zha5dp/Desktop/YAP5SA_and_S94A_RNA_seq_data_analysis")
+setwd("/path/to/YAP5SA_and_S94A_RNA_seq_data_analysis")
 
 # Read data
 counts <- read.csv("gene_count_matrix.csv", row.names = 1)
